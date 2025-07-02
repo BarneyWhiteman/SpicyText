@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#the-development-process" class="md-skip">
+        <a href="#using-custom-themes" class="md-skip">
           Skip to content
         </a>
       
@@ -321,54 +321,27 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#developing-the-library" class="md-nav__link">
+  <a href="#getting-started" class="md-nav__link">
     <span class="md-ellipsis">
-      Developing the library
+      Getting Started
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#resolving-dependencies" class="md-nav__link">
+  <a href="#properties" class="md-nav__link">
     <span class="md-ellipsis">
-      Resolving dependencies
+      Properties
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#configuring-the-gradle-build-file" class="md-nav__link">
+  <a href="#gotchas" class="md-nav__link">
     <span class="md-ellipsis">
-      Configuring the Gradle build file
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#creating-examples" class="md-nav__link">
-    <span class="md-ellipsis">
-      Creating examples
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#creating-the-release-artifacts" class="md-nav__link">
-    <span class="md-ellipsis">
-      Creating the release artifacts
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#additional-documentation" class="md-nav__link">
-    <span class="md-ellipsis">
-      Additional Documentation
+      Gotchas
     </span>
   </a>
   
@@ -431,54 +404,27 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#developing-the-library" class="md-nav__link">
+  <a href="#getting-started" class="md-nav__link">
     <span class="md-ellipsis">
-      Developing the library
+      Getting Started
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#resolving-dependencies" class="md-nav__link">
+  <a href="#properties" class="md-nav__link">
     <span class="md-ellipsis">
-      Resolving dependencies
+      Properties
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#configuring-the-gradle-build-file" class="md-nav__link">
+  <a href="#gotchas" class="md-nav__link">
     <span class="md-ellipsis">
-      Configuring the Gradle build file
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#creating-examples" class="md-nav__link">
-    <span class="md-ellipsis">
-      Creating examples
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#creating-the-release-artifacts" class="md-nav__link">
-    <span class="md-ellipsis">
-      Creating the release artifacts
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#additional-documentation" class="md-nav__link">
-    <span class="md-ellipsis">
-      Additional Documentation
+      Gotchas
     </span>
   </a>
   
@@ -500,120 +446,90 @@
 
 
 
-<h1 id="the-development-process">The Development Process</h1>
-<p>You are now ready to develop your library. This guide will walk you through resolving dependencies, configuring the build, creating release artifacts, and testing your library in Processing.</p>
+<h1 id="using-custom-themes">Using Custom Themes</h1>
+<p>To get your text looking <em>just right</em> you probably want to try using a custom theme!</p>
+<p>This lets you change the defaults for how the SpicyText is displayed.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>If you haven't set up your environment yet, refer to the <a href="getting-started.html">Getting Started guide</a>.</p>
+<p>Check out the example on custom themes! To find out how to access the examples, see <a href="examples.html">Examples</a>.</p>
 </div>
-<h2 id="developing-the-library">Developing the library</h2>
-<p><strong>Develop your library within <code>src/main/java/</code>.</strong> Set the <code>package</code> at the top of your file to your
-own group id and library name, all together. For instance, in the example library, the group id is
-<code>com.myDomain</code> and the library name is <code>myLibrary</code>. The package is then <code>com.myDomain.myLibrary</code>.
-These values will need to match the values input into your Gradle build file, <code>build.gradle.kts</code>.
-More on this in <a href="#configuring-the-gradle-build-file">Configuring the Gradle build file</a>.</p>
-<p>Intellij and Visual Studio Code will then direct you to move your code into nested folders, consistent
-with your package name. For instance, if the package is <code>com.myDomain.myLibrary</code>, the code will
-be in the folder structure <code>src/main/java/com/myDomain/myLibrary/</code>.</p>
-<p>If you would like to use Processing functionality in your library, you can do so by importing Processing core
-and referencing Processing objects from the PApplet instance. An example of how to do this is given in the
-example library in this template.</p>
-<h2 id="resolving-dependencies">Resolving dependencies</h2>
-<p>In the <code>build.gradle.kts</code> file, there are a few places you should edit, to input your own values.
-The part of the file that you are invited to edit is indicated by the comment 
-<code>USER BUILD CONFIGURATIONS</code>. We cover here how to add dependencies for your library. The relevant
-sections of the <code>build.gradle.kts</code> file are the <code>repositories</code> and <code>dependencies</code> sections.</p>
-<p><strong>The locations where dependencies will be resolved from are the <code>repositories</code>.</strong> Most
-dependencies can be resolved from Maven. You can add additional repositories here if
-your dependencies are hosted elsewhere. </p>
-<p><strong>Your dependencies should be listed within <code>dependencies</code>.</strong> For example, if the example library
-were to use the <code>commons-math3</code> package from <code>org.apache.commons</code> as a dependency, it would be listed within <code>dependencies</code> with the following structure:</p>
-<div class="highlight"><pre><span></span><code>implementation(group = &quot;org.apache.commons&quot;, name = &quot;commons-math3&quot;, version = &quot;3.6.1&quot;)
+<h2 id="getting-started">Getting Started</h2>
+<p>The first thing to do is create a custom theme object:</p>
+<div class="highlight"><pre><span></span><code><span class="n">SpicyTextTheme</span><span class="w"> </span><span class="n">myTheme</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">SpicyTextTheme</span><span class="p">();</span><span class="w"> </span><span class="c1">// create a theme object</span>
 </code></pre></div>
+<p>The <code>SpicyTextTheme</code> initialises with the default settings, so you don't have to change anything before you can use it.</p>
+<p><strong>BUT</strong> the reason we're here is to change the default look, so let's do something nice and straightforward!</p>
+<div class="highlight"><pre><span></span><code><span class="n">myTheme</span><span class="p">.</span><span class="na">textColour</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">color</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">255</span><span class="p">);</span><span class="w"> </span><span class="c1">// set the default text colour to magenta!</span>
+</code></pre></div>
+<p>Once you've set up your theme, you can use it in the SpicyText constructor:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// Use the theme in the basic SpicyText constructor</span>
+<span class="n">SpicyText</span><span class="w"> </span><span class="n">mySpicyText</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">SpicyText</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;This will be magenta&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">textSize</span><span class="p">,</span><span class="w"> </span><span class="n">myTheme</span><span class="p">);</span>
+
+<span class="c1">// There&#39;s also a constructor that takes a max width AND a custom theme</span>
+<span class="n">SpicyText</span><span class="w"> </span><span class="n">wrappedText</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">SpicyText</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Wrapped Text&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">textSize</span><span class="p">,</span><span class="w"> </span><span class="n">maxWidth</span><span class="p">,</span><span class="w"> </span><span class="n">myTheme</span><span class="p">);</span>
+</code></pre></div>
+<h2 id="properties">Properties</h2>
+<p>Of course, you can use the <code>SpicyTextTheme</code> object to change MORE than just the text colour!</p>
+<p>Here's a full list of the properties:</p>
+<table>
+<thead>
+<tr>
+<th><strong>Property</strong></th>
+<th><strong>Description</strong></th>
+<th><strong>Default Value</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>textColour</code></td>
+<td>The default text colour, used when no <code>[COLOUR=...]</code> tags have been used OR all colours have been cleared with <code>[END_COLOUR]</code> tags.</td>
+<td><code>0</code> - black</td>
+</tr>
+<tr>
+<td><code>font</code></td>
+<td>The font to be used for the SpicyText. This can be from one of the fonts installed on your computer using <a href="https://processing.org/reference/createFont_.html">createFont</a> or loaded from a file using <a href="https://processing.org/reference/loadFont_.html">loadFont</a>.</td>
+<td><code>null</code> - uses default Processing Sketch font</td>
+</tr>
+<tr>
+<td><code>dropShadowOffset</code></td>
+<td>The distance (in pixels) to offset the drop shadow. Positive values move the drop shadow towards the bottom right. A value of 0 will not produce any drop shadow.</td>
+<td><code>2</code></td>
+</tr>
+<tr>
+<td><code>shadowOpacity</code></td>
+<td>The opacity of the drop shadow text. A value of <code>0</code> will make the shadow fully transparent, while a value of <code>1</code> will make it fully opaque.</td>
+<td><code>0.5</code></td>
+</tr>
+<tr>
+<td><code>textBackgroundMargin</code></td>
+<td>The distance (in pixels) to extend a characters background past it's border. Larger values will create a bigger background.</td>
+<td><code>4</code></td>
+</tr>
+<tr>
+<td><code>cornerRadius</code></td>
+<td>The radius of the corners of the background rectangle. A value of <code>0</code> will have sharp corners. Larger values produce more rounded corners.</td>
+<td><code>4</code></td>
+</tr>
+<tr>
+<td><code>newLineMargin</code></td>
+<td>The distance (in pixels) to be left in between lines of the SpicyText (measured from the bottom of the previous line to the top of the new line). In practice the gap can be larger than the provided value, since the "bottom" is the bottom of hanging letters (e.g. <code>p</code>) and the "top" is the top of tall letters (e.g. <code>d</code>).</td>
+<td><code>4</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="gotchas">Gotchas</h2>
+<p>In most cases, you'll probably create a theme, set up the values, and then pass it into the constructor of one or many SpicyText objects.</p>
+<p>If you change the values of the theme AFTER a SpicyText object has been made using it, some unexpected behaviour can occur
+(unless you call <code>setText</code> after changing the theme).</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Dependencies added with <code>implementation</code> will be included in the release. Dependencies
-added with <code>compileOnly</code>, such as Processing core, are available for compilation, but won't
-be included in the release.</p>
+<p>Calling <code>setText(String newText);</code> will re-processes the layout <strong>IF</strong> the text being set is <strong>DIFFERENT</strong> from its original text.
+You can force the update by calling <code>setText(String newText, int maxWidth);</code> with a <code>maxWidth</code> value (use <code>-1</code> in the case that you don't want any text wrapping).  </p>
 </div>
-<p>After you add these dependencies, <strong>refresh Gradle</strong>, and then you will be able to access them
-in your code. Refresh Gradle by going to the Gradle menu (elephant) in your IDE
-and click on the refresh icon, which is two arrows pointing at each other's ends in a circle.</p>
-<h2 id="configuring-the-gradle-build-file">Configuring the Gradle build file</h2>
-<p>In the <code>build.gradle.kts</code> file, there are a few places you should edit, to input your own values.
-The section that you are invited to edit is indicated by the comment <code>USER BUILD CONFIGURATIONS</code>.
-We cover here how to configure the editable sections of the <code>build.gradle.kts</code> file, aside from
-those sections for <a href="#resolving-dependencies">resolving dependencies</a>.</p>
-<ol>
-<li><strong>Edit the variable <code>libName</code> to contain the name of your library</strong>. The name can only contain
-    lower case alphanumeric characters, and "-". 
-    This value is used by Gradle to name the built jar file, and the zip file holding
-    your release artifacts. If this name does not match the name of the library in your code, 
-    as discussed in the section <a href="#developing-the-library">Developing the library</a>,
-    Processing will not find your library.</li>
-<li><strong>Edit the variable <code>group</code> with your own domain or organization name.</strong> The group id 
-    of your library uniquely identifies your project. It's often written in reverse domain name 
-    notation. For example, if your website is "myDomain.com", your group ID would be 
-    "com.myDomain". This group id should match the group id discussed in 
-    section <a href="#developing-the-library">Developing the library</a>.</li>
-<li>
-<p>The <code>sketchbookLocation</code> is determined programmatically by your operation system, and is
-    where your Processing <code>sketchbook</code> folder is. This folder contains your installed libraries.
-    It is needed if you:</p>
-<ol>
-<li>wish to copy the library to the Processing sketchbook, which installs the library locally</li>
-<li>have Processing library dependencies</li>
-</ol>
-<p>This variable is in the editable section, in case the location determined is incorrect. A
-symptom of an incorrect <code>sketchbookLocation</code> is that your library does not show up as a
-contributed library Processing, after being installed. Please look at our
-<a href="troubleshooting.md">troubleshooting guide</a> if you suspect this is the case.</p>
-</li>
-</ol>
-<h2 id="creating-examples">Creating examples</h2>
-<p>Examples help users understand your library’s functionality, it is recommended that you include several clear and well-commented samples sketches in the <code>examples</code> folder.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>The example sketch included in this template outputs the image shown on the home page.</p>
-</div>
-<h2 id="creating-the-release-artifacts">Creating the release artifacts</h2>
-<ol>
-<li>Fill in the file <code>release.properties</code> with information for your library. In the file itself,
-    There are comments to guide you. This information will be used by Gradle to create the 
-    <code>library.properties</code> file, which is one of the required release artifacts, used by the website 
-    and Contribution Manager to describe your library. To create just the <code>library.properties</code> file without building the
-    library, toggle <code>Tasks</code> &gt; <code>processing</code> and double click <code>writeLibraryProperties</code>. This task will
-    copy all the values in <code>release.properties</code>.</li>
-<li><strong>To build the library and create the release artifacts, run the Gradle task <code>buildReleaseArtifacts</code>.</strong>
-    This task will create a <code>release</code> folder with needed artifacts. To do this, go to the Gradle menu 
-    (elephant), toggle <code>Tasks</code> &gt; <code>processing</code> and double click <code>buildReleaseArtifacts</code>. This task 
-    has bundled the following required tasks:<ol>
-<li><code>build</code> task: this bundles a number of build tasks, including the <code>jar</code> task which creates a
-    jar file. all build artifacts are in the folder <code>build</code>.</li>
-<li>documentation build.</li>
-<li>creation of the <code>library.properties</code> file: this file is built from the properties set in the
-   <code>release.properties</code> file, plus the version, in the task <code>writeLibraryProperties</code>.</li>
-<li>within the <code>buildReleaseArtifacts</code> task, the <code>release</code> folder is created, jars of the library and
-    dependencies are copied, and the <code>library.properties</code> file is copied. Also, a zip file is made.</li>
-</ol>
-</li>
-<li>When you would like to test your library in Processing, toggle <code>Tasks</code> &gt; <code>processing</code> and double click
-    <code>deployToProcessingSketchbook</code>, which will create the release artifacts, and copy them into the 
-    sketchbook folder.</li>
-</ol>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-</div>
-<p>If you <a href="https://docs.github.com/en/repositories/releasing-projects-on-github/managing-releases-in-a-repository">release your library on Github</a>,
-your release tag will be used for the value of the <code>prettyVersion</code> field, overwriting the value for <code>prettyVersion</code> 
-defined in <code>release.properties</code>, as a helpful automation.</p>
-<h2 id="additional-documentation">Additional Documentation</h2>
-<p>See the following guides for more details:</p>
-<ul>
-<li><a href="https://github.com/processing/processing4/wiki/Library-Overview">Library Overview</a>: an introduction to Processing libraries in general.</li>
-<li><a href="https://github.com/processing/processing4/wiki/Library-Basics">Library Basics</a>: a basic guide for creating a Processing library from scratch, including structuring the library, registering methods with PApplet, handling events, and preparing the library for distribution.</li>
-<li><a href="https://github.com/processing/processing4/wiki/Library-Guidelines">Library Guidelines</a>: describes the requirements for a Processing library, including naming conventions, examples, and other best practices.</li>
-</ul>
+<p>This is because the SpicyText object processes the layout of the text when it's initialised (not every frame), but is obviously
+still drawn every frame.
+Therefore, any theme values used <em>ONLY</em> for display can be changed without calling <code>setText</code>, but those that impact the layout
+(namely <code>font</code> and <code>newLineMargin</code>) will require calling <code>setText</code> before any changes will be visible.</p>
 
 
 

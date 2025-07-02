@@ -65,6 +65,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#examples" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -250,6 +255,21 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Examples
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="examples.html" class="md-nav__link md-nav__link--active">
         
@@ -262,6 +282,79 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#access-the-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      Access the examples
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-1-hello-world" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example 1: Hello World
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-2-dynamic-text" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example 2: Dynamic Text
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-3-custom-theme" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example 3: Custom Theme
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-4-custom-effects" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example 4: Custom Effects
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-5-graphics-target" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example 5: Graphics Target
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -328,6 +421,70 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#access-the-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      Access the examples
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-1-hello-world" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example 1: Hello World
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-2-dynamic-text" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example 2: Dynamic Text
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-3-custom-theme" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example 3: Custom Theme
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-4-custom-effects" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example 4: Custom Effects
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-5-graphics-target" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example 5: Graphics Target
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -343,9 +500,42 @@
 
 
 
-  <h1>Examples</h1>
-
-
+<h1 id="examples">Examples</h1>
+<p>The library contains 5 examples of increasing complexity that show most of what the library has to offer.</p>
+<p>It's recommended that you read through the <a href="getting-started.html">Getting Started</a> page before exploring the examples.
+This will walk you through installing the library, show you a trivial example, and explain a bit more about how the library works.</p>
+<h2 id="access-the-examples">Access the examples</h2>
+<p>The examples can either be accessed via the Processing IDE or viewed on the
+<a href="https://github.com/BarneyWhiteman/SpicyText/tree/main/examples">GitHub page</a></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>I haven't included the example code here simply because I want to minimise the places I have to maintain them.
+What IS included in this page is a high-level explanation of what each example contains. The comments in the example
+should be sufficient to explain what's going on. If you have any questions, please just <a href="mailto:barney@barneycodes.com">reach out!</a></p>
+</div>
+<p><strong>To access via the Processing IDE:</strong>
+1. Navigate to <code>File</code> &gt; click on <code>Examples...</code> to open the <code>Java Examples</code> window.
+2. Expand the <code>Contributed Libraries</code> category
+3. Expand the <code>SpicyText</code> sub-category
+4. Double-click the desired example to open it in the Processing IDE</p>
+<h2 id="example-1-hello-world">Example 1: Hello World</h2>
+<p>Goes over the basic usage of the library:
+* Tag basics
+* Simple text wrapping
+* Displaying Spicy Text with alignment</p>
+<h2 id="example-2-dynamic-text">Example 2: Dynamic Text</h2>
+<p>Covers some slightly more advanced usage
+* Using <code>setText</code> to update text
+* Using <code>setText</code> to update the text wrapping width
+* Using <code>width()</code> and <code>height()</code> to get the bounding box of the SpicyText</p>
+<h2 id="example-3-custom-theme">Example 3: Custom Theme</h2>
+<p>Covers the basics of creating and using a custom theme. </p>
+<p>Check out <a href="custom-themes.html">Using Custom Themes</a> for more detailed information.</p>
+<h2 id="example-4-custom-effects">Example 4: Custom Effects</h2>
+<p>Covers the basics of creating and using custom effects.</p>
+<p>Check out <a href="custom-effects.html">Creating Custom Effects</a> for more detailed information.</p>
+<h2 id="example-5-graphics-target">Example 5: Graphics Target</h2>
+<p>Shows how to draw SpicyText to a different <code>PGraphics</code> object. </p>
 
 
 
