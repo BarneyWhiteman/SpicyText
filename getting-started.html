@@ -14,7 +14,7 @@
         <link rel="prev" href="index.html">
       
       
-        <link rel="next" href="develop.html">
+        <link rel="next" href="examples.html">
       
       
       <link rel="icon" href="assets/images/favicon.png">
@@ -277,20 +277,71 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#setting-up-the-environment" class="md-nav__link">
+  <a href="#installation" class="md-nav__link">
     <span class="md-ellipsis">
-      Setting up the environment
+      Installation
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#testing-the-library-template" class="md-nav__link">
+  <a href="#hello-world" class="md-nav__link">
     <span class="md-ellipsis">
-      Testing the Library Template
+      Hello World!
     </span>
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tags" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tags
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tags">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#colour-tags" class="md-nav__link">
+    <span class="md-ellipsis">
+      Colour Tags
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#background-tags" class="md-nav__link">
+    <span class="md-ellipsis">
+      Background Tags
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#effect-tags" class="md-nav__link">
+    <span class="md-ellipsis">
+      Effect Tags
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nestingcombining-tags" class="md-nav__link">
+    <span class="md-ellipsis">
+      Nesting/Combining Tags
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -318,12 +369,12 @@
   
   
     <li class="md-nav__item">
-      <a href="develop.html" class="md-nav__link">
+      <a href="examples.html" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    Develop
+    Examples
     
   </span>
   
@@ -340,12 +391,12 @@
   
   
     <li class="md-nav__item">
-      <a href="release.html" class="md-nav__link">
+      <a href="custom-themes.html" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    Release
+    Using Custom Themes
     
   </span>
   
@@ -362,12 +413,12 @@
   
   
     <li class="md-nav__item">
-      <a href="troubleshooting.html" class="md-nav__link">
+      <a href="custom-effects.html" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    Troubleshooting
+    Creating Custom Effects
     
   </span>
   
@@ -404,20 +455,71 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#setting-up-the-environment" class="md-nav__link">
+  <a href="#installation" class="md-nav__link">
     <span class="md-ellipsis">
-      Setting up the environment
+      Installation
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#testing-the-library-template" class="md-nav__link">
+  <a href="#hello-world" class="md-nav__link">
     <span class="md-ellipsis">
-      Testing the Library Template
+      Hello World!
     </span>
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tags" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tags
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tags">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#colour-tags" class="md-nav__link">
+    <span class="md-ellipsis">
+      Colour Tags
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#background-tags" class="md-nav__link">
+    <span class="md-ellipsis">
+      Background Tags
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#effect-tags" class="md-nav__link">
+    <span class="md-ellipsis">
+      Effect Tags
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nestingcombining-tags" class="md-nav__link">
+    <span class="md-ellipsis">
+      Nesting/Combining Tags
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -447,48 +549,132 @@
 
 
 <h1 id="getting-started">Getting Started</h1>
-<p>We're excited that you're interested in contributing to the Processing ecosystem! Building a library lets you expand Processing’s capabilities, and it's a great way to give back by sharing your custom tools with the community.</p>
-<p>This guide will help you set up your development environment and start building your library using the provided template.</p>
-<h2 id="setting-up-the-environment">Setting up the environment</h2>
-<p>Follow these steps to create your own repository on GitHub and install the necessary tools.</p>
+<p>SpicyText is a very simple to use library to quickly add some...spice to your text in <a href="https://www.processing.org">Processing</a>.</p>
+<p>This is done by adding simple tags to your strings that determine the text colour, background colour, and any effects that will be applied when displaying your text!</p>
+<h2 id="installation">Installation</h2>
+<p><em>Using the Processing IDE Contribution Manager:</em>
+1.  <strong>Open Processing</strong>
+2.  <strong>Import the library:</strong>
+    * In the menus at the top of the Processing IDE, navigate to <code>Sketch</code> &gt; <code>Import Library...</code> &gt; 
+click on <code>Manage Libraries...</code> to open the "Contribution Manager" window and search for "SpicyText"
+    * In the bottom right, click "Install"</p>
+<p><em>Installing manually:</em>
+1. Go to the <a href="https://github.com/BarneyWhiteman/SpicyText/releases">Releases page</a> on the <a href="https://github.com/BarneyWhiteman/SpicyText">GitHub</a> and download the latest <code>.zip</code> file
+2. Navigate to your Sketchbook folder
+   * To find out where this is, in the Processing IDE, navigate to <code>File</code> &gt; click on <code>Preferences</code>
+   * The first item should be show <code>Sketchbook folder</code> file path
+3. Extract the <code>.zip</code> into the <code>libraries</code> folder inside the Sketchbook folder.</p>
+<h2 id="hello-world">Hello World!</h2>
+<p>Now that library is installed, let's start styling some text!</p>
 <ol>
-<li><strong>Create a new GitHub repository</strong> using the <a href="https://github.com/processing/processing-library-template">processing-library-template</a>
-   as a base.
-   (See: <a href="https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template">How to create a repository from a template.</a>)
-   Choose a name that reflects the library you're building. Make sure to read about Processing's <a href="https://github.com/benfry/processing4/wiki/Library-Basics#library-naming-rules">naming rules for libraries</a>. You can always rename the repository later.</li>
-<li><strong>Clone your repository</strong> to your local computer.
-   (<a href="https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository">How to clone a repository</a>)</li>
-<li><strong>Install <a href="https://processing.org/download">Processing</a></strong>, if it's not already installed on your computer.</li>
-<li><strong>Install an integrated development editor (IDE)</strong> such as <a href="https://www.jetbrains.com/idea/download">Intellij</a>, 
-   or <a href="https://code.visualstudio.com/">Visual Studio Code</a>.
-   Intellij comes fully featured, and has a free community version. For Visual Studio Code, you'll need to install additional extensions, such as Gradle for Java and Java language support.</li>
-</ol>
-<h2 id="testing-the-library-template">Testing the Library Template</h2>
-<p>Now that your environment is set up, follow these steps to get familiar with the template and make sure everything works correctly:</p>
-<ol>
-<li><strong>Open up your new repository in your chosen IDE.</strong></li>
-<li><strong>Run the Gradle task <code>deployToProcessingSketchbook</code>:</strong> 
-    *In the Gradle menu (the elephant icon) in your IDE, navigate to <code>Tasks</code> &gt; <code>processing</code> &gt; 
-    <code>deployToProcessingSketchbook</code>, and double-click on <code>deployToProcessingSketchbook</code>. <ul>
-<li>This will build the library, create the release artifacts, and copy them to the folder 
-where Processing libraries are stored.</li>
+<li><strong>Open Processing</strong> (if it's not already open..!)</li>
+<li><strong>Import the library:</strong> <ul>
+<li>In the menus at the top of the Processing IDE, navigate to <code>Sketch</code> &gt; <code>Import Library...</code>.</li>
+<li>You should see an entry called "SpicyText" under <code>Contributed</code> heading. Click on "SpicyText".</li>
+<li>This will insert the text <code>import com.barneycodes.spicytext.*;</code> at the top of your sketch, letting you use the SpicyText library!</li>
 </ul>
 </li>
-<li><strong>Check if the library appears as a contributed library:</strong> <ul>
-<li>Open Processing, and click on <code>Sketch</code> &gt; <code>Import Library ...</code>.</li>
-<li>You should see an entry named "A Template Example Library" in the menu as <code>Contributed</code>. 
-This is the sample library you just installed using the template. </li>
-<li>If it does not appear, please check the <a href="troubleshooting.html">troubleshooting guide</a>.</li>
-</ul>
-</li>
+<li><strong>Use Spicy Text:</strong>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">com.barneycodes.spicytext.*</span><span class="p">;</span>
+
+<span class="c1">// Declare a SpicyText object</span>
+<span class="n">SpicyText</span><span class="w"> </span><span class="n">mySpicyText</span><span class="p">;</span>
+
+<span class="c1">// Define a string with some tags to add some spice!</span>
+<span class="n">String</span><span class="w"> </span><span class="n">styledText</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;This is some [COLOUR=#FFFF0000][EFFECT=BOUNCE]SPICY[END_EFFECT][END_COLOUR] [BACKGROUND=255]text![END_BACKGROUND]&quot;</span><span class="p">;</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">size</span><span class="p">(</span><span class="mi">1280</span><span class="p">,</span><span class="w"> </span><span class="mi">720</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// Initialise the Spicy text.</span>
+<span class="w">    </span><span class="c1">// It needs a reference to the sketch (this), the text, and a text size (in this case 80).</span>
+<span class="w">    </span><span class="n">mySpicyText</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">SpicyText</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="n">styledText</span><span class="p">,</span><span class="w"> </span><span class="mi">80</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">draw</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">background</span><span class="p">(</span><span class="mi">200</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// Display the text at the given x, y location.</span>
+<span class="w">    </span><span class="c1">// You choose how the text is aligned horizontally and vertically.</span>
+<span class="w">    </span><span class="c1">// If alignment is omitted, the text will be displayed aligned to the LEFT (horizontally) and TOP (vertically).</span>
+<span class="w">    </span><span class="n">mySpicyText</span><span class="p">.</span><span class="na">draw</span><span class="p">(</span><span class="n">width</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">height</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">CENTER</span><span class="p">,</span><span class="w"> </span><span class="n">CENTER</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></li>
 </ol>
+<h2 id="tags">Tags</h2>
+<p>You'll notice that the <code>styledText</code> has some square brackets (<code>[]</code>) in it, containing various text. These are "tags" 
+that let the Spicy Text know how you want the text to be styled.</p>
+<p>There are currently 3 tag types:
+1. <code>[COLOUR=...]</code> for changing the TEXT colour
+2. <code>[BACKGROUND=...]</code> for changing the BACKGROUND colour
+3. <code>[EFFECT=...]</code> for using an effect</p>
+<p>Each tag has a corresponding end tag (<code>[END_COLOUR]</code>, <code>[END_BACKGROUND]</code>, and <code>[END_EFFECT]</code>) that let the Spicy Text 
+know when you want the previous colour/background/effect to end. If there is no end tag, for a given colour/background/effect, 
+then it will extend until the end of the string.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Any value inside square brackets in the input string will be omitted when being displayed.
+Malformed/invalid tags will have no visible impact on the displayed text.</p>
+</div>
+<h3 id="colour-tags">Colour Tags</h3>
+<p>Colour tags are used to change the TEXT colour for all characters in between the opening (i.e. <code>[COLOUR=...]</code>)
+and closing (i.e. <code>[END_COLOUR]</code>) tags.</p>
+<p>You must specify a colour after the <code>=</code> inside the tag. This can take 3 different forms:</p>
+<ol>
+<li>A simple integer (e.g. <code>[COLOUR=255]</code>)</li>
+<li>A hexadecimal integer using the <code>0x</code> format (e.g. <code>[COLOUR=0xFFFFFFFF]</code>)</li>
+<li>A hexadecimal integer using the <code>#</code> format (e.g. <code>[COLOUR=#FFFFFFFF]</code>)</li>
+</ol>
+<p>All of the above examples produce white text.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Processing uses the <code>ARGB</code> colour format, so when specifying a colour with hexadecimal, use 8 characters.
+If you only use 6 characters (to represent <code>RGB</code>), the alpha will be set to 0, meaning your text will be invisible!
+To get around this, simply add <code>FF</code> to the start of your number (e.g. <code>0x00FF00</code> -&gt; <code>0xFF00FF00</code> for green) to set the alpha to 100%.
+Of course, you can play with this for transparent text too!</p>
+</div>
+<h3 id="background-tags">Background Tags</h3>
+<p>Background tags are used to change the BACKGROUND colour for all characters in between the opening (i.e. <code>[BACKGROUND=...]</code>)
+and closing (i.e. <code>[END_BACKGROUND]</code>) tags.</p>
+<p>Just like the <code>[COLOUR=...]</code> tags, you must specify a colour after the <code>=</code> inside the tag.
+All the rules for <code>[COLOUR=...]</code> tags also apply for <code>[BACKGROUND=...]</code> tags.  </p>
+<h3 id="effect-tags">Effect Tags</h3>
+<p>Effect tags are used to apply animations and other programmatic effects to all the characters in between the opening (i.e. <code>[EFFECT=...]</code>)
+and closing (i.e. <code>[END_EFFECT]</code>) tags.</p>
+<p>You must specify the desired effect after the <code>=</code> inside the tag. There are currently 3 in-built effects:</p>
+<ol>
+<li><code>[EFFECT=BOUNCE]</code> to make text bounce</li>
+<li><code>[EFFECT=WAVE]</code> to make text wave</li>
+<li><code>[EFFECT=JIGGLE]</code> to make text...that's right, jiggle</li>
+</ol>
+<p>If you want something more specific, take a look at the <a href="custom-effects.html">Creating Custom Effects</a> page!</p>
+<h3 id="nestingcombining-tags">Nesting/Combining Tags</h3>
+<p>Characters can be influenced by multiple different tags at the same time.</p>
+<p>Colours/backgrounds/effects are stored internally in a stack, so an <code>[END_...]</code> tag will simply pop the most recently set
+colour/background/effect off the stack.</p>
+<p><strong>Colour and background tags:</strong></p>
+<p>In the case of <code>[COLOUR=...]</code> and <code>[BACKGROUND=...]</code> tags, characters will use the most recently set colour.
+When an <code>[END_COLOUR]</code> or <code>[END_BACKGROUND]</code> tag is found, it will pop the last colour/background from the stack so all
+following characters will use the previously set colour/background.</p>
+<p>If the stack is already empty, the text will use the colour set in the theme
+(see <a href="custom-themes.html">Using Custom Themes</a> for more information), and no background will be displayed.</p>
+<p>Try this:</p>
+<p><code>"Default colour [COLOUR=#FFFF0000]RED [COLOUR=#FF00FF00]GREEN![END_COLOUR] RED again[END_COLOUR] back to default"</code></p>
+<p><strong>Effect tags:</strong></p>
+<p>If a character is inside multiple <code>[EFFECT=...]</code> tags, the character will be influenced by ALL of the effects in the stack
+(as long as any custom effects have been written "correctly" to not write over the output of other effects...).</p>
+<p>Try this:</p>
+<p><code>"No effect [EFFECT=WAVE]WAVING [EFFECT=JIGGLE]WAVING AND JIGGLING[END_EFFECT] WAVING again[END_EFFECT] back to normal"</code></p>
+<p><strong>Altogether now!</strong></p>
+<p>Character backgrounds are drawn relative to the final position of the character (after effects are applied), so moving
+text will also move the backgrounds.</p>
+<p>Try this:</p>
+<p><code>"Normal [EFFECT=WAVE]WAVING [BACKGROUND=#FFFF0000]WAVING AND RED BACKGROUND[END_BACKGROUND] just waving[END_EFFECT] and back to normal"</code></p>
 <h2 id="next-steps">Next Steps</h2>
-<p>Great, now that you're familiar with the library template, you can explore additional guides:</p>
-<ol>
-<li><a href="develop">The development process</a></li>
-<li><a href="release">Releasing your library</a></li>
-<li><a href="troubleshooting.html">Troubleshooting</a></li>
-</ol>
+<p>Now you've got a little bit of an idea what's going on, you can explore the <a href="examples">examples</a> for some more advanced usage.</p>
+<p>You may also want to check out the following pages for more in-depth guides on customisation:
+1. <a href="custom-themes">Using Custom Themes</a>
+2. <a href="custom-effects">Creating Custom Effects</a></p>
 
 
 
@@ -541,13 +727,13 @@ This is the sample library you just installed using the template. </li>
         
         
           
-          <a href="develop.html" class="md-footer__link md-footer__link--next" aria-label="Next: Develop">
+          <a href="examples.html" class="md-footer__link md-footer__link--next" aria-label="Next: Examples">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Develop
+                Examples
               </div>
             </div>
             <div class="md-footer__button md-icon">
