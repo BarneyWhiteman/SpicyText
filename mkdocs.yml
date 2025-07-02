@@ -28,6 +28,6 @@ plugins:
 nav:
   - Home: index.md
   - Get Started: getting-started.md
-  - Develop: develop.md
-  - Release: release.md
-  - Troubleshooting: troubleshooting.md
+  - Examples: examples.md
+  - Using Custom Themes: custom-themes.md
+  - Creating Custom Effects: custom-effects.md

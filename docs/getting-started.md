@@ -1,42 +1,155 @@
 # Getting Started
-We're excited that you're interested in contributing to the Processing ecosystem! Building a library lets you expand Processing’s capabilities, and it's a great way to give back by sharing your custom tools with the community.
+SpicyText is a very simple to use library to quickly add some...spice to your text in [Processing](https://www.processing.org).
 
-This guide will help you set up your development environment and start building your library using the provided template.
+This is done by adding simple tags to your strings that determine the text colour, background colour, and any effects that will be applied when displaying your text!
+
+## Installation
+*Using the Processing IDE Contribution Manager:*
+1.  **Open Processing**
+2.  **Import the library:**
+    * In the menus at the top of the Processing IDE, navigate to `Sketch` > `Import Library...` > 
+click on `Manage Libraries...` to open the "Contribution Manager" window and search for "SpicyText"
+    * In the bottom right, click "Install"
+
+*Installing manually:*
+1. Go to the [Releases page](https://github.com/BarneyWhiteman/SpicyText/releases) on the [GitHub](https://github.com/BarneyWhiteman/SpicyText) and download the latest `.zip` file
+2. Navigate to your Sketchbook folder
+   * To find out where this is, in the Processing IDE, navigate to `File` > click on `Preferences`
+   * The first item should be show `Sketchbook folder` file path
+3. Extract the `.zip` into the `libraries` folder inside the Sketchbook folder.
+
+## Hello World!
+Now that library is installed, let's start styling some text!
+
+1.  **Open Processing** (if it's not already open..!)
+2.  **Import the library:** 
+    * In the menus at the top of the Processing IDE, navigate to `Sketch` > `Import Library...`.
+    * You should see an entry called "SpicyText" under `Contributed` heading. Click on "SpicyText".
+    * This will insert the text `import com.barneycodes.spicytext.*;` at the top of your sketch, letting you use the SpicyText library!
+3.  **Use Spicy Text:**
+```java
+import com.barneycodes.spicytext.*;
+
+// Declare a SpicyText object
+SpicyText mySpicyText;
+
+// Define a string with some tags to add some spice!
+String styledText = "This is some [COLOUR=#FFFF0000][EFFECT=BOUNCE]SPICY[END_EFFECT][END_COLOUR] [BACKGROUND=255]text![END_BACKGROUND]";
+
+void setup() {
+    size(1280, 720);
+    
+    // Initialise the Spicy text.
+    // It needs a reference to the sketch (this), the text, and a text size (in this case 80).
+    mySpicyText = new SpicyText(this, styledText, 80);
+}
+
+void draw() {
+    background(200);
+    
+    // Display the text at the given x, y location.
+    // You choose how the text is aligned horizontally and vertically.
+    // If alignment is omitted, the text will be displayed aligned to the LEFT (horizontally) and TOP (vertically).
+    mySpicyText.draw(width/2, height/2, CENTER, CENTER);
+}
+```
+
+## Tags
+You'll notice that the `styledText` has some square brackets (`[]`) in it, containing various text. These are "tags" 
+that let the Spicy Text know how you want the text to be styled.
+
+There are currently 3 tag types:
+1. `[COLOUR=...]` for changing the TEXT colour
+2. `[BACKGROUND=...]` for changing the BACKGROUND colour
+3. `[EFFECT=...]` for using an effect
+
+Each tag has a corresponding end tag (`[END_COLOUR]`, `[END_BACKGROUND]`, and `[END_EFFECT]`) that let the Spicy Text 
+know when you want the previous colour/background/effect to end. If there is no end tag, for a given colour/background/effect, 
+then it will extend until the end of the string.
+
+!!! Note
+    Any value inside square brackets in the input string will be omitted when being displayed.
+    Malformed/invalid tags will have no visible impact on the displayed text.
+
+### Colour Tags
+Colour tags are used to change the TEXT colour for all characters in between the opening (i.e. `[COLOUR=...]`)
+and closing (i.e. `[END_COLOUR]`) tags.
+
+You must specify a colour after the `=` inside the tag. This can take 3 different forms:
+
+1. A simple integer (e.g. `[COLOUR=255]`)
+2. A hexadecimal integer using the `0x` format (e.g. `[COLOUR=0xFFFFFFFF]`)
+3. A hexadecimal integer using the `#` format (e.g. `[COLOUR=#FFFFFFFF]`)
+
+All of the above examples produce white text.
+
+!!! Note
+    Processing uses the `ARGB` colour format, so when specifying a colour with hexadecimal, use 8 characters.
+    If you only use 6 characters (to represent `RGB`), the alpha will be set to 0, meaning your text will be invisible!
+    To get around this, simply add `FF` to the start of your number (e.g. `0x00FF00` -> `0xFF00FF00` for green) to set the alpha to 100%.
+    Of course, you can play with this for transparent text too!
+
+### Background Tags
+Background tags are used to change the BACKGROUND colour for all characters in between the opening (i.e. `[BACKGROUND=...]`)
+and closing (i.e. `[END_BACKGROUND]`) tags.
+
+Just like the `[COLOUR=...]` tags, you must specify a colour after the `=` inside the tag.
+All the rules for `[COLOUR=...]` tags also apply for `[BACKGROUND=...]` tags.  
+
+### Effect Tags
+Effect tags are used to apply animations and other programmatic effects to all the characters in between the opening (i.e. `[EFFECT=...]`)
+and closing (i.e. `[END_EFFECT]`) tags.
+
+You must specify the desired effect after the `=` inside the tag. There are currently 3 in-built effects:
+
+1. `[EFFECT=BOUNCE]` to make text bounce
+2. `[EFFECT=WAVE]` to make text wave
+3. `[EFFECT=JIGGLE]` to make text...that's right, jiggle
+
+If you want something more specific, take a look at the [Creating Custom Effects](custom-effects.md) page!
+
+### Nesting/Combining Tags
+Characters can be influenced by multiple different tags at the same time.
+
+Colours/backgrounds/effects are stored internally in a stack, so an `[END_...]` tag will simply pop the most recently set
+colour/background/effect off the stack.
 
 
-## Setting up the environment
-Follow these steps to create your own repository on GitHub and install the necessary tools.
+**Colour and background tags:**
 
-1. **Create a new GitHub repository** using the [processing-library-template](https://github.com/processing/processing-library-template)
-   as a base.
-   (See: [How to create a repository from a template.](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template))
-   Choose a name that reflects the library you're building. Make sure to read about Processing's [naming rules for libraries](https://github.com/benfry/processing4/wiki/Library-Basics#library-naming-rules). You can always rename the repository later.
-2. **Clone your repository** to your local computer.
-   ([How to clone a repository](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository))
-3. **Install [Processing](https://processing.org/download)**, if it's not already installed on your computer.
-4. **Install an integrated development editor (IDE)** such as [Intellij](https://www.jetbrains.com/idea/download), 
-   or [Visual Studio Code](https://code.visualstudio.com/).
-   Intellij comes fully featured, and has a free community version. For Visual Studio Code, you'll need to install additional extensions, such as Gradle for Java and Java language support.
+In the case of `[COLOUR=...]` and `[BACKGROUND=...]` tags, characters will use the most recently set colour.
+When an `[END_COLOUR]` or `[END_BACKGROUND]` tag is found, it will pop the last colour/background from the stack so all
+following characters will use the previously set colour/background.
 
-## Testing the Library Template
-Now that your environment is set up, follow these steps to get familiar with the template and make sure everything works correctly:
+If the stack is already empty, the text will use the colour set in the theme
+(see [Using Custom Themes](custom-themes.md) for more information), and no background will be displayed.
 
-1.  **Open up your new repository in your chosen IDE.**
-2.  **Run the Gradle task `deployToProcessingSketchbook`:** 
-    *In the Gradle menu (the elephant icon) in your IDE, navigate to `Tasks` > `processing` > 
-    `deployToProcessingSketchbook`, and double-click on `deployToProcessingSketchbook`. 
-    * This will build the library, create the release artifacts, and copy them to the folder 
-    where Processing libraries are stored.
-3.  **Check if the library appears as a contributed library:** 
-    * Open Processing, and click on `Sketch` > `Import Library ...`.
-    * You should see an entry named "A Template Example Library" in the menu as `Contributed`. 
-    This is the sample library you just installed using the template. 
-    * If it does not appear, please check the [troubleshooting guide](troubleshooting.md).
+Try this:
 
+`"Default colour [COLOUR=#FFFF0000]RED [COLOUR=#FF00FF00]GREEN![END_COLOUR] RED again[END_COLOUR] back to default"`
+
+
+**Effect tags:**
+
+If a character is inside multiple `[EFFECT=...]` tags, the character will be influenced by ALL of the effects in the stack
+(as long as any custom effects have been written "correctly" to not write over the output of other effects...).
+
+Try this:
+
+`"No effect [EFFECT=WAVE]WAVING [EFFECT=JIGGLE]WAVING AND JIGGLING[END_EFFECT] WAVING again[END_EFFECT] back to normal"`
+
+**Altogether now!**
+
+Character backgrounds are drawn relative to the final position of the character (after effects are applied), so moving
+text will also move the backgrounds.
+
+Try this:
+
+`"Normal [EFFECT=WAVE]WAVING [BACKGROUND=#FFFF0000]WAVING AND RED BACKGROUND[END_BACKGROUND] just waving[END_EFFECT] and back to normal"`
 
 ## Next Steps
-Great, now that you're familiar with the library template, you can explore additional guides:
+Now you've got a little bit of an idea what's going on, you can explore the [examples](examples) for some more advanced usage.
 
-1. [The development process](develop)
-2. [Releasing your library](release)
-3. [Troubleshooting](troubleshooting.md)
+You may also want to check out the following pages for more in-depth guides on customisation:
+1. [Using Custom Themes](custom-themes)
+2. [Creating Custom Effects](custom-effects)
