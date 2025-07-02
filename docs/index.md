@@ -6,7 +6,11 @@ Use the built-in `[COLOUR=...]`, `[BACKGROUND=...]` and `[EFFECT=...]` tags to q
 
 This is an open source library, so check out the code on GitHub at [https://github.com/BarneyWhiteman/SpicyText](https://github.com/BarneyWhiteman/SpicyText) if you're interested!
 
-![example sketch output](./example_sketch_output.png)
+![example sketch output](./spicyText.gif)
+The above image is the SpicyText output for the following:
+
+`"This is some [COLOUR=#FFFF0000][EFFECT=WAVE]SPICY[END_EFFECT][END_COLOUR] [BACKGROUND=255]text![END_BACKGROUND]"`
+
 
 This documentation provides information on
 

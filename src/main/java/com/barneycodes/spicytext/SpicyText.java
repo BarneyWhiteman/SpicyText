@@ -57,8 +57,6 @@ public class SpicyText implements PConstants {
 
     private final SpicyTextTheme theme;
 
-    private int offset = -1;
-
     private final int ascent;
 
     /**
@@ -229,11 +227,6 @@ public class SpicyText implements PConstants {
      * @see PGraphics#textAlign(int, int)
      */
     public void draw(PGraphics g, float x, float y, int alignH, int alignV) {
-
-        if(offset == -1) {
-            offset = (int)parent.random(1000);
-        }
-
         g.push();
 
         g.textAlign(LEFT, BASELINE);
@@ -253,7 +246,7 @@ public class SpicyText implements PConstants {
 
         for(int i = 0; i < chars.size(); i ++) {
             SpicyTextChar c = chars.get(i);
-            params[i] = c.applyEffects( parent.millis() + offset);
+            params[i] = c.applyEffects(parent.millis());
 
             if(c.y != lastY) {
                 lineNum += 1;

@@ -21,8 +21,21 @@ void setup() {
   // This will register an effect function under the given name.
   // This can be done at anytime (even after creating the SpicyText objects using the custom effect)
   // but will only produce a result if it's done BEFORE drawing!
+
+  // You can either add by reference to a function
   SpicyText.customEffect("SLIDE", this::myCustomSlideEffect);
-  SpicyText.customEffect("FLASH", this::myCustomFlashEffect);
+
+  // Or create the effect function in place
+  SpicyText.customEffect("FLASH", (spicyChar, effectParams) -> {
+    // t value fluctuates between 0 and 1
+    float t = sin(effectParams.time/200f) * 2;
+    t = constrain(t, 0, 1);
+
+    // Can use the inbuilt colour functions to create new colours
+    // In this case we ARE writing over the colour value BUT we're also using the existing colour when our effect isn't being applied,
+    // so other effects that change the colour can still be used!
+    effectParams.colour = t == 1 ? color(255, 0, 0) : effectParams.colour;
+  });
 }
 
 void draw() {
@@ -34,9 +47,10 @@ void draw() {
     both.draw(20, height - 20, LEFT, BOTTOM);
 }
 
-
+// A custom effect function that takes in a SpicyTextChar and CharEffectParams
+// It produces results by manipulating the CharEffectParams, which determines how the character is displayed
 void myCustomSlideEffect(SpicyTextChar spicyChar, CharEffectParams effectParams) {
-  // values fluctuates bettwen -1 and 1 based on animation time from CharEffectParams
+  // values fluctuates between -1 and 1 based on animation time from CharEffectParams
   float xT = sin(effectParams.time/100f);
   float rotT = sin(effectParams.time/200f);
 
@@ -45,15 +59,4 @@ void myCustomSlideEffect(SpicyTextChar spicyChar, CharEffectParams effectParams)
   // Otherwise you might impact other effects!
   effectParams.x += xT * spicyChar.height/8; // using height because it's the same for all characters. Character widths can vary, so you'll get different movement distances!
   effectParams.rotation += rotT * PI/8;
-}
-
-void myCustomFlashEffect(SpicyTextChar spicyChar, CharEffectParams effectParams) {
-  // t value fluctuates between 0 and 1
-  float t = sin(effectParams.time/200f) * 2;
-  t = constrain(t, 0, 1);
-
-  // Can use the inbuilt colour functions to create new colours
-  // In this case we ARE writing over the colour value BUT we're also using the existing colour when our effect isn't being applied,
-  // so other effects that change the colour can still be used!
-  effectParams.colour = t == 1 ? color(255, 0, 0) : effectParams.colour;
 }
